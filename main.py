@@ -19,7 +19,7 @@ driver = selenium.webdriver.Chrome(service=service, options=options)
 try:
     driver.get(url)
     driver.get_screenshot_as_file('instagram.png')
-    driver.save_screenshot()
+    driver.save_screenshot('screenshot2.png')
     time.sleep(5)
 except Exception as ex:
     print(ex)
