@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.service import Service
 import time
 import random
 from fake_useragent import UserAgent
+from proxy_auth_data import login, password
 
 # url = "https://www.instagram.com/"
 url2 = 'https://www.whatismybrowser.com/detect/what-is-my-user-agent'
@@ -45,13 +46,25 @@ options.add_argument(f'user-agent={useragent.random}')
 
 
 # set proxy
-options.add_argument("--proxy-server=23.227.38.230:80")
+# options.add_argument("--proxy-server=23.227.38.230:80")
 
-driver = selenium.webdriver.Chrome(
+# seleniumwire proxy
+
+proxy_options = {
+    "proxy": {
+        "https": f"http://{login}:{password}@185.102.73.44:10616"
+    }
+}
+
+# driver = selenium.webdriver.Chrome(
+#     service=service,
+#     options=options
+#     )
+
+driver = webdriver.Chrome(
     service=service,
-    options=options
+    seleniumwire_options=proxy_options
     )
-
 
 try:
     # driver.get(url2)
