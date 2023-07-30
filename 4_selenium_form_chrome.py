@@ -43,9 +43,19 @@ try:
     # password_input = email_input.send_keys(Keys.ENTER)
 
     # CSS_SELECTOR orqali izlaganda barcha css selektorlar nuqta bilan boshlanishi kerak va ular ko'p bolsa orasida probel bo'lmasligi kerak
-    password_input = driver.find_element(By.CSS_SELECTOR, '.base-0-2-87.primary-0-2-101.auto-0-2-113')
-    password_input.click()
+    password_button = driver.find_element(By.CSS_SELECTOR, '.base-0-2-87.primary-0-2-101.auto-0-2-113')
+    password_button.click()
+    time.sleep(3)
+
+    password_input = driver.find_element(By.NAME, 'password')
+    password_input.clear()
+    password_input.send_keys(mail_password)
+    time.sleep(2)
+    password_input.send_keys(Keys.ENTER)
     time.sleep(10)
+
+
+
 except Exception as ex:
     print(ex)
 finally:
