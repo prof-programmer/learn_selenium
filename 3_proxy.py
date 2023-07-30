@@ -1,4 +1,4 @@
-import selenium
+# import selenium
 from seleniumwire import webdriver
 # from selenium import webdriver - seleniumwire dan webdriver import qilganimiz uchun bu import shart emas
 from selenium.webdriver.chrome.service import Service
@@ -25,7 +25,7 @@ service = Service(executable_path="D:\\GitHubRepos\\automate_smartup\\chromedriv
 # r"D:\GitHubRepos\automate_smartup\chromedriver.exe"
 
 # options
-options = selenium.webdriver.ChromeOptions()
+options = webdriver.ChromeOptions()
 
 '''
 chromium optsiyalari ro'yxati - https://peter.sh/experiments/chromium-command-line-switches/
@@ -49,10 +49,14 @@ options.add_argument(f'user-agent={useragent.random}')
 # options.add_argument("--proxy-server=23.227.38.230:80")
 
 # seleniumwire proxy
+# https://www.zenrows.com/blog/selenium-proxy#proxy-authentication
+# seleniumwire proxy ishlatish uchun tepada link qoldirdim
 
 proxy_options = {
     "proxy": {
-        "https": f"http://{login}:{password}@185.102.73.44:10616"
+        "https": f"http://{login}:{password}@94.247.132.142:10037",
+        "http": f"http://{login}:{password}@94.247.132.142:10037"
+
     }
 }
 
@@ -72,7 +76,11 @@ try:
     # driver.save_screenshot('screenshot5.png')
     # time.sleep(2)
 
-    driver.get('https://myip.ru/')
+    driver.get('https://yandex.ru/internet')
+    driver.save_screenshot('screenshot_proxy_changed.png')
+    time.sleep(3)
+
+
 except Exception as ex:
     print(ex)
 finally:
