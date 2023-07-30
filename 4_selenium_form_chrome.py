@@ -3,6 +3,7 @@ from selenium.webdriver import Keys # klaviaturada knopka bosih imitatsiya qilis
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By # find_element ishlatish uchun shuni import qilish kerak
 import time
+from auth_data import mail_password
 import random
 
 url = 'https://account.mail.ru/login'
