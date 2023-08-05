@@ -53,7 +53,7 @@ try:
     # time.sleep(2)
     # password_input.send_keys(Keys.ENTER)
     # time.sleep(10)
-    # 
+    #
     # # get cookie
     # pickle.dump(driver.get_cookies(), open(f'{mail_login}_cookies', 'wb'))
 
